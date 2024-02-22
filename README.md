@@ -35,7 +35,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/danik1341/tic-tac-toe-frontend.git
+   git clone https://github.com/danik1341/TicTacToeFrontend.git
    ```
 
 2. Install NPM packages
