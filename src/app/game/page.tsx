@@ -104,6 +104,11 @@ export default function GameBoard() {
     }
   };
 
+  // Check for a full board
+  function isBoardFull(gameBoard: string[]) {
+    return gameBoard.every((cell) => cell !== null);
+  }
+
   return (
     <div className="h-screen my-auto overflow-hidden">
       <div className="">
@@ -119,25 +124,29 @@ export default function GameBoard() {
           </div>
         )}
 
-        {game.winStatus && (
+        {game.winStatus ? (
           <div className="flex flex-col items-center space-y-2 mt-6 font-bold text-base sm:text-xl">
             {game.winStatus === "X" ? (
               <>
                 <span>You Won! Great Job</span>
                 <span>Click On The Board To Play Your Next Game</span>
               </>
-            ) : game.winStatus === "O" ? (
-              <>
-                <span>You Lost! Try Your Best Next Time!</span>
-                <span>Click On The Board To Play Your Next Game</span>
-              </>
             ) : (
-              <>
-                <span>It Is A Draw!</span>
-                <span>Click On The Board To Play Your Next Game</span>
-              </>
+              game.winStatus === "O" && (
+                <>
+                  <span>You Lost! Try Your Best Next Time!</span>
+                  <span>Click On The Board To Play Your Next Game</span>
+                </>
+              )
             )}
           </div>
+        ) : (
+          isBoardFull(game.gameBoard) && (
+            <div className="flex flex-col items-center space-y-2 mt-6 font-bold text-base sm:text-xl">
+              <span>It Is A Draw!</span>
+              <span>Click On The Board To Play Your Next Game</span>
+            </div>
+          )
         )}
 
         <div className="w-[90%] sm:w-1/2 flex space-x-3 justify-evenly bg-slate-400 mt-10 rounded border-solid border-[thin] border-gray-500">
