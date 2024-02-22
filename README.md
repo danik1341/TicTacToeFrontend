@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple steps.
 2. Install NPM packages
 
    ```sh
-   cd tic-tac-toe-frontend
+   cd TicTacToeFrontend
    npm install
    ```
 
